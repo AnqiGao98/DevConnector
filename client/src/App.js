@@ -12,13 +12,14 @@ import AddEperience from './components/profile_form/AddEperience';
 import AddEducation from './components/profile_form/AddEducation';
 import PrivateRoute from './components/routing/PrivateRoute';
 import Profiles from './components/profiles/Profiles';
+import Profile from './components/profile/Profile';
 import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 import './App.css';
 //redux
 import { Provider } from 'react-redux';
 import store from './store';
-import { addEducation } from './actions/profile';
+//import { addEducation } from './actions/profile';
 
 const App = () => {
   useEffect(() => {
@@ -38,6 +39,7 @@ const App = () => {
               <Route exact path='/register' component={Register} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/profiles' component={Profiles} />
+              <Route exact path='/profile/:id' component={Profile} />
               <PrivateRoute exact path='/dashboard' component={Dashboard} />
               <PrivateRoute
                 exact

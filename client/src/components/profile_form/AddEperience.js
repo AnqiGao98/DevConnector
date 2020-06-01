@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
-import { STATES } from 'mongoose';
 
 const AddEperience = ({ addExperience, history }) => {
   const [formData, setFormData] = useState({
@@ -78,7 +77,6 @@ const AddEperience = ({ addExperience, history }) => {
               type='checkbox'
               name='current'
               checked={current}
-              value=''
               value={current}
               onChange={(e) => {
                 setFormData({ ...formData, current: !current });
@@ -121,4 +119,4 @@ AddEperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
 };
 
-export default connect(null, { addExperience })(AddEperience);
+export default connect(null, { addExperience })(withRouter(AddEperience));

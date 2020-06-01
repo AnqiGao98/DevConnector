@@ -209,7 +209,7 @@ export const deleteEdu = (id) => async (dispatch) => {
 export const deleteAccount = () => async (dispatch) => {
   if (window.confirm('Are you sure to delete your account?')) {
     try {
-      const res = await axios.delete('api/profile');
+      await axios.delete('api/profile');
       dispatch({
         type: CLEAR_PROFILE,
       });
@@ -231,7 +231,7 @@ export const deleteAccount = () => async (dispatch) => {
 
 //get github repos
 export const getGitHubRepos = (username) => async (dispatch) => {
-  dispatch({ type: CLEAR_PROFILE });
+  //dispatch({ type: CLEAR_PROFILE });
   try {
     const res = await axios.get(`/api/profile/github/${username}`);
     dispatch({

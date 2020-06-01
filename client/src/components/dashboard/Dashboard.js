@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getCurrentProfile, deleteAccount } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
 import { Link } from 'react-router-dom';
-import { CLEAR_PROFILE, PROFILE_ERROR } from '../../actions/types';
+//import { CLEAR_PROFILE, PROFILE_ERROR } from '../../actions/types';
 import DashBoardAction from './DashBoardAction';
 import Experience from './Experience';
 import Education from './Education';
@@ -17,7 +17,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
   return loading && profile == null ? (
     <Spinner />
   ) : (
