@@ -3,3 +3,5 @@ node_modules/
 devconnector_html_theme/
 
 config/default.json
+
+config/production.json
