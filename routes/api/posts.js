@@ -70,7 +70,7 @@ router.get('/:id', auth, async (req, res) => {
 });
 
 //@rount    DELETE api/posts/:id
-//@desc     Get a single post
+//@desc     delete a post
 //@access   private
 router.delete('/:id', auth, async (req, res) => {
   try {
@@ -168,7 +168,7 @@ router.post(
       };
       post.comments.unshift(newComment);
       await post.save();
-      res.json(post);
+      res.json(post.comments);
     } catch (error) {
       console.error(error);
       res.status(500).send('Server error');
@@ -194,12 +194,13 @@ router.delete('/comment/:id/:comment_id', auth, async (req, res) => {
     if (comment.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: 'User not authorized' });
     }
-    const removeIndex = post.comments
-      .map((comment) => comment.user.toString())
-      .indexOf(req.user.id);
-    post.comments.splice(removeIndex, 1);
+    post.comments = post.comments.filter(
+      (comment) => comment.id !== req.params.comment_id
+    );
+    console.log(post.comments);
     await post.save();
-    res.json(post);
+
+    res.json(post.comments);
   } catch (error) {
     console.error(error);
     res.status(500).send('Server error');
