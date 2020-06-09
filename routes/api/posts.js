@@ -168,6 +168,18 @@ router.post(
       };
       post.comments.unshift(newComment);
       await post.save();
+
+      //save a new notification
+      const newNo = new Notification({
+        text: 'commented on your post',
+        type: 'comment',
+        post: post.id,
+        postText: post.text,
+        receiveUser: post.user,
+        fromUser: req.user.id,
+        fromUserName: user.name,
+      });
+      await newNo.save();
       res.json(post.comments);
     } catch (error) {
       console.error(error);

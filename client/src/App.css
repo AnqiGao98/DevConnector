@@ -452,7 +452,30 @@ button {
   flex: 3;
   flex-basis: 20%;
 }
+/* Notification Page*/
+.ntfc {
+  display: grid;
+  grid-gap: 2rem;
+  align-items: center;
+}
 
+.btn_right {
+  float: right;
+}
+
+.notification {
+  text-align: match-parent;
+  color: black;
+  text-emphasis: 6;
+}
+.read {
+  color: grey;
+}
+
+.italitc {
+  font-style: italic;
+  font-family: 'Courier New', Courier, monospace;
+}
 /* Posts Page */
 .post-form .post-form-header {
   background: var(--primary-color);

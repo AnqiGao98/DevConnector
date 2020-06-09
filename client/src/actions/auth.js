@@ -1,5 +1,6 @@
 import axios from 'axios'; //make requests
 import { setAlert } from './alert';
+import { createNotification } from './notification';
 import {
   REGISTER_FAIL,
   REGISTER_SUCCESS,

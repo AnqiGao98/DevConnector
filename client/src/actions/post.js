@@ -10,6 +10,7 @@ import {
   ADD_COMMENT,
   REMOVE_COMMENT,
 } from './types';
+import { createNotification } from './notification';
 
 //GET all posts
 export const getPosts = () => async (dispatch) => {
@@ -101,7 +102,6 @@ export const addPost = (formData) => async (dispatch) => {
       type: ADD_POST,
       payload: res.data,
     });
-    //dispatch(setAlert('Post Removed', 'success'));
   } catch (error) {
     dispatch({
       type: POST_ERROR,

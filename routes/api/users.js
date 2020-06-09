@@ -66,6 +66,14 @@ router.post(
         },
       };
 
+      //save a new notification
+      const newNo = new Notification({
+        text: 'Welcome to our community!',
+        type: 'register',
+        receiveUser: user.id,
+      });
+      await newNo.save();
+
       jwt.sign(
         payload,
         config.get('jwtSecret'),
